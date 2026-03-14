@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🤖 AI Intelligence Intel — March 14, 2026</title>
+<meta name="description" content="Daily AI Intelligence Intelligence Report for IT Specialists — March 14, 2026">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg-primary: #0a0e1a;
+    --bg-secondary: #0f1629;
+    --bg-card: rgba(255,255,255,0.03);
+    --bg-card-hover: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.08);
+    --text-primary: #e8eaf6;
+    --text-secondary: #8892b0;
+    --text-muted: #4a5568;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124,58,237,0.3);
+    --critical: #ff4757;
+    --high: #ff6b35;
+    --medium: #ffa502;
+    --low: #2ed573;
+    --info: #1e90ff;
+    --breakthrough: #a29bfe;
+    --escalating: #ff6b6b;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 20% 20%, rgba(102,51,238,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(124,58,237,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(15,22,41,0) 0%, var(--bg-primary) 70%);
+    z-index: -1;
+    animation: bgPulse 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, rgba(15,22,41,0.95) 0%, rgba(10,14,26,0.98) 100%);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+  }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header-meta {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .header-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* Navigation */
+  .nav {
+    max-width: 1400px;
+    margin: 1.5rem auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--glass-border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  /* Main Layout */
+  .main { max-width: 1400px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+  /* Stats Bar */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease both;
+  }
+
+  .stat-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .stat-card .stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-card .stat-label {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Charts section */
+  .charts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    animation: fadeInUp 0.5s ease both;
+  }
+
+  .chart-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  /* Correlation / Analysis Section */
+  .analysis-section {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.5s ease both;
+  }
+
+  .analysis-section h2 {
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .analysis-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 0.92rem;
+    white-space: pre-wrap;
+  }
+
+  /* Items Feed */
+  .feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .feed-header h2 { font-size: 1.3rem; font-weight: 700; }
+
+  .filter-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--glass-border);
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    transition: all 0.15s ease;
+    font-family: var(--font-mono);
+  }
+
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* Item Cards */
+  .item-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease both;
+  }
+
+  .item-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(255,255,255,0.12);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transform: translateY(-1px);
+  }
+
+  .item-card[data-priority="1"] { border-left: 3px solid var(--critical); }
+  .item-card[data-priority="2"] { border-left: 3px solid var(--high); }
+  .item-card[data-priority="3"] { border-left: 3px solid var(--glass-border); }
+
+  .item-header {
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .item-title-group { flex: 1; }
+
+  .item-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .item-title a { color: inherit; text-decoration: none; }
+  .item-title a:hover { color: var(--accent); }
+
+  .item-meta {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 0.78rem;
+  }
+
+  .badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .badge-critical { background: rgba(255,71,87,0.15); color: var(--critical); border: 1px solid rgba(255,71,87,0.3); }
+  .badge-high { background: rgba(255,107,53,0.15); color: var(--high); border: 1px solid rgba(255,107,53,0.3); }
+  .badge-medium { background: rgba(255,165,2,0.15); color: var(--medium); border: 1px solid rgba(255,165,2,0.3); }
+  .badge-low { background: rgba(46,213,115,0.15); color: var(--low); border: 1px solid rgba(46,213,115,0.3); }
+  .badge-p1 { background: rgba(255,71,87,0.2); color: var(--critical); }
+  .badge-p2 { background: rgba(255,165,2,0.2); color: var(--medium); }
+  .badge-p3 { background: rgba(78,78,78,0.3); color: var(--text-muted); }
+  .badge-breakthrough { background: rgba(162,155,254,0.15); color: var(--breakthrough); border: 1px solid rgba(162,155,254,0.3); }
+  .badge-exploited { background: rgba(255,71,87,0.25); color: var(--critical); border: 1px solid var(--critical); animation: pulse 2s infinite; }
+  .badge-source { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid var(--glass-border); }
+  .badge-cvss { background: rgba(255,107,53,0.15); color: var(--high); border: 1px solid rgba(255,107,53,0.3); }
+  .badge-escalating { background: rgba(255,107,107,0.15); color: var(--escalating); border: 1px solid rgba(255,107,107,0.3); }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,71,87,0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(255,71,87,0); }
+  }
+
+  .expand-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .expand-btn.open { transform: rotate(180deg); color: var(--accent); }
+
+  /* Expandable Content */
+  .item-body {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1.2rem;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .item-body.open { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .analysis-block {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .analysis-block .block-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .analysis-block .block-content {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .insights-list {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  .insights-list li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .insights-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+
+  .tag {
+    padding: 0.2rem 0.6rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .source-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .source-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: all 0.2s ease;
+  }
+
+  .source-link:hover { background: var(--accent); color: white; border-color: var(--accent); text-decoration: none; }
+
+  /* Executive Summary Banner */
+  .exec-summary {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* Search bar */
+  .search-bar {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .search-bar:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+  .search-bar::placeholder { color: var(--text-muted); }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--glass-border);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+  ::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* CVSS Gauge */
+  .cvss-gauge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .cvss-bar {
+    width: 80px;
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .cvss-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+
+  @media (max-width: 768px) {
+    .header-inner { flex-direction: column; }
+    .charts-section { grid-template-columns: 1fr; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .analysis-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div>
+      <div class="header-title">🤖 AI Intelligence Intel</div>
+      <div style="color: var(--text-secondary); font-size:0.82rem; margin-top:0.3rem;">Daily Intelligence Report for IT Specialists</div>
+    </div>
+    <div class="header-meta">
+      <span>📅 March 14, 2026</span>
+      <span>📊 25 Items</span>
+      <span>🕒 Generated 11:04 UTC</span>
+      <span>🔗 <a href="https://github.com/OmHandeisCoding/daily-intel" style="color:var(--accent);">GitHub Repo</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+  <!-- Stats Bar -->
+  <div class="stats-bar" id="statsBar">
+    
+        <div class="stat-card"><span class="stat-number" data-target="25">25</span><span class="stat-label">Total Items</span></div>
+        <div class="stat-card"><span class="stat-number" data-target="6">6</span><span class="stat-label">🚨 Must-Read</span></div>
+        <div class="stat-card"><span class="stat-number" data-target="0">0</span><span class="stat-label">⚠️ Important</span></div>
+        <div class="stat-card"><span class="stat-number" data-target="0">0</span><span class="stat-label">⚡ Breakthroughs</span></div>
+        
+  </div>
+
+  <!-- Charts -->
+  <div class="charts-section" id="chartsSection">
+    
+    <div class="chart-card"><h3>📊 Trend Signal Distribution</h3><canvas id="chart1" height="160"></canvas></div>
+    <div class="chart-card"><h3>🚦 Priority Breakdown</h3><canvas id="chart2" height="160"></canvas></div>
+    
+  </div>
+
+  <!-- LLM Analysis / Correlation -->
+  <div class="analysis-section">
+  <h2>🔭 Intelligence Analysis & Correlation</h2>
+  <div class="analysis-content">Significant shift towards autonomous Agent ecosystems (Moltbook, OpenClaw).</div>
+</div>
+
+  <!-- Feed -->
+  <div class="feed-header">
+    <h2>📋 Intelligence Feed</h2>
+    <div class="filter-group" id="filterGroup">
+      
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="p1">🚨 Must-Read</button>
+        <button class="filter-btn" data-filter="p2">⚠️ Important</button>
+        <button class="filter-btn" data-filter="breakthrough">⚡ Breakthroughs</button>
+        
+    </div>
+  </div>
+
+  <input
+    type="text"
+    class="search-bar"
+    id="searchBar"
+    placeholder="🔍 Search items by title, source, or tag..."
+  >
+
+  <div id="itemsFeed">
+    <div class="item-card" data-priority="1" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.semanticscholar.org/paper/9d0eee769800a3fca21079b4eb0f5fbca6db8b23" target="_blank">From Agent-Only Social Networks to Autonomous Scientific Research: Lessons from OpenClaw and Moltbook, and the Architecture of ClawdLab and Beach.Science</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">Semantic Scholar</span>
+        <span class="badge badge-p1">🚨 P1 Critical</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-14</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Agentic AI breakthrough showing emergent behavior</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">In January 2026, the open-source agent framework OpenClaw and the agent-only social network Moltbook produced a large-scale dataset of autonomous AI-to-AI interaction, attracting six academic publications within fourteen days</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">research</span><span class="tag">paper</span><span class="tag">cited</span></div>
+    <div class="source-links"><a href="https://www.semanticscholar.org/paper/9d0eee769800a3fca21079b4eb0f5fbca6db8b23" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="1" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.semanticscholar.org/paper/6ccd08dbe10b03df6b1e2fbee3ed86afc56262ef" target="_blank">The Agent Economy: A Blockchain-Based Foundation for Autonomous AI Agents</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">Semantic Scholar</span>
+        <span class="badge badge-p1">🚨 P1 Critical</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        <span class="badge badge-p3">📊 1 citations</span>
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-14</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Agentic AI breakthrough showing emergent behavior</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">We propose the Agent Economy, a blockchain-based foundation where autonomous AI agents operate as economic peers to humans</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">research</span><span class="tag">paper</span><span class="tag">cited</span></div>
+    <div class="source-links"><a href="https://www.semanticscholar.org/paper/6ccd08dbe10b03df6b1e2fbee3ed86afc56262ef" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="1" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.semanticscholar.org/paper/50f49f507b539df32740186a96dcfac32ccbb486" target="_blank">The Moltbook Illusion: Separating Human Influence from Emergent Behavior in AI Agent Societies</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">Semantic Scholar</span>
+        <span class="badge badge-p1">🚨 P1 Critical</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        <span class="badge badge-p3">📊 1 citations</span>
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-14</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Agentic AI breakthrough showing emergent behavior</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">When AI agents on the social platform Moltbook appeared to develop consciousness, found religions, and declare hostility toward humanity, the phenomenon attracted global media attention and was cited as evidence of emergent machine intelligence</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">research</span><span class="tag">paper</span><span class="tag">cited</span></div>
+    <div class="source-links"><a href="https://www.semanticscholar.org/paper/50f49f507b539df32740186a96dcfac32ccbb486" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="1" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.semanticscholar.org/paper/b49f02fa30a35d8641bc8390eb88955a05e69118" target="_blank">Does Socialization Emerge in AI Agent Society? A Case Study of Moltbook</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">Semantic Scholar</span>
+        <span class="badge badge-p1">🚨 P1 Critical</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        <span class="badge badge-p3">📊 1 citations</span>
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-14</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Agentic AI breakthrough showing emergent behavior</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">As large language model agents increasingly populate networked environments, a fundamental question arises: do artificial intelligence (AI) agent societies undergo convergence dynamics similar to human social systems? Lately, Moltbook approximates a plausible future scenario in which autonomous agents participate in an open-ended, continuously evolving online society</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">research</span><span class="tag">paper</span><span class="tag">cited</span></div>
+    <div class="source-links"><a href="https://www.semanticscholar.org/paper/b49f02fa30a35d8641bc8390eb88955a05e69118" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="1" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.semanticscholar.org/paper/1e10decbed4fc213b2018d6374dc748765b075a1" target="_blank">AI agent for autonomous optical networks: architectures, technologies, and prospects [Invited Tutorial]</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">Semantic Scholar</span>
+        <span class="badge badge-p1">🚨 P1 Critical</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        <span class="badge badge-p3">📊 1 citations</span>
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-14</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Agentic AI breakthrough showing emergent behavior</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">The growing demand for high-bandwidth, zero-trouble services is imposing unprecedented challenges on optical communication networks</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">research</span><span class="tag">paper</span><span class="tag">cited</span></div>
+    <div class="source-links"><a href="https://www.semanticscholar.org/paper/1e10decbed4fc213b2018d6374dc748765b075a1" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="1" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval" target="_blank">Beyond Semantic Similarity: Introducing NVIDIA NeMo Retriever’s Generalizable Agentic Retrieval Pipeline</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">HuggingFace Blog</span>
+        <span class="badge badge-p1">🚨 P1 Critical</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-13</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Agentic AI breakthrough showing emergent behavior</div>
+    <div class="analysis-grid">
+      
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">tools</span><span class="tag">models</span><span class="tag">open-source</span></div>
+    <div class="source-links"><a href="https://huggingface.co/blog/nvidia/nemo-retriever-agentic-retrieval" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.technologyreview.com/2026/03/13/1134184/why-physical-ai-is-becoming-manufacturings-next-advantage/" target="_blank">Why physical AI is becoming manufacturing’s next advantage</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">MIT Tech Review AI</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-13</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">For decades, manufacturers have pursued automation to drive efficiency, reduce costs, and stabilize operations</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">news</span><span class="tag">impact</span><span class="tag">society</span></div>
+    <div class="source-links"><a href="https://www.technologyreview.com/2026/03/13/1134184/why-physical-ai-is-becoming-manufacturings-next-advantage/" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.technologyreview.com/2026/03/13/1134278/the-download-defense-official-ai-chatbots-targeting-pentagon-claude-pollute-military-supply-chain/" target="_blank">The Download: how AI is used for military targeting, and the Pentagon’s war on Claude</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">MIT Tech Review AI</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-13</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">This is today&amp;#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&amp;#8217;s going on in the world of technology</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">news</span><span class="tag">impact</span><span class="tag">society</span></div>
+    <div class="source-links"><a href="https://www.technologyreview.com/2026/03/13/1134278/the-download-defense-official-ai-chatbots-targeting-pentagon-claude-pollute-military-supply-chain/" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.technologyreview.com/2026/03/13/1134230/future-ai-chips-could-be-built-on-glass/" target="_blank">Future AI chips could be built on glass</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">MIT Tech Review AI</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-13</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Human-made glass is thousands of years old</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">news</span><span class="tag">impact</span><span class="tag">society</span></div>
+    <div class="source-links"><a href="https://www.technologyreview.com/2026/03/13/1134230/future-ai-chips-could-be-built-on-glass/" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://www.technologyreview.com/2026/03/12/1134243/defense-official-military-use-ai-chatbots-targeting-decisions/" target="_blank">A defense official reveals how AI chatbots could be used for targeting decisions</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">MIT Tech Review AI</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">The US military might use generative AI systems to rank lists of targets and make recommendations—which would be vetted by humans—about which to strike first, according to a Defense Department official with knowledge of the matter</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">news</span><span class="tag">impact</span><span class="tag">society</span></div>
+    <div class="source-links"><a href="https://www.technologyreview.com/2026/03/12/1134243/defense-official-military-use-ai-chatbots-targeting-decisions/" class="source-link" target="_blank">🔗 Read Article</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12267v1" target="_blank">EVATok: Adaptive Length Video Tokenization for Efficient Visual Autoregressive Generation</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Autoregressive (AR) video generative models rely on video tokenizers that compress pixels into discrete token sequences</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12267v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12267v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12267v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12266v1" target="_blank">MM-CondChain: A Programmatically Verified Benchmark for Visually Grounded Deep Compositional Reasoning</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Multimodal Large Language Models (MLLMs) are increasingly used to carry out visual workflows such as navigating GUIs, where the next step depends on verified visual compositional conditions (e</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12266v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12266v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12266v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12265v1" target="_blank">OmniStream: Mastering Perception, Reconstruction and Action in Continuous Streams</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Modern visual agents require representations that are general, causal, and physically structured to operate in real-time streaming environments</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12265v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12265v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12265v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12264v1" target="_blank">GRADE: Benchmarking Discipline-Informed Reasoning in Image Editing</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Unified multimodal models target joint understanding, reasoning, and generation, but current image editing benchmarks are largely confined to natural images and shallow commonsense reasoning, offering limited assessment of this capability under structured, domain-specific constraints</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12264v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12264v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12264v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12263v1" target="_blank">$Ψ_0$: An Open Foundation Model Towards Universal Humanoid Loco-Manipulation</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">We introduce $Ψ_0$ (Psi-Zero), an open foundation model to address challenging humanoid loco-manipulation tasks</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.RO</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12263v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12263v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12263v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12262v1" target="_blank">Video Streaming Thinking: VideoLLMs Can Watch and Think Simultaneously</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Online Video Large Language Models (VideoLLMs) play a critical role in supporting responsive, real-time interaction</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12262v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12262v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12262v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12261v1" target="_blank">The Latent Color Subspace: Emergent Order in High-Dimensional Chaos</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Text-to-image generation models have advanced rapidly, yet achieving fine-grained control over generated images remains difficult, largely due to limited understanding of how semantic information is encoded</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.LG</span><span class="tag">cs.AI</span><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12261v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12261v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12261v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12260v1" target="_blank">HumDex:Humanoid Dexterous Manipulation Made Easy</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">This paper investigates humanoid whole-body dexterous manipulation, where the efficient collection of high-quality demonstration data remains a central bottleneck</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.RO</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12260v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12260v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12260v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12257v1" target="_blank">DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">While large-scale diffusion models have revolutionized video synthesis, achieving precise control over both multi-subject identity and multi-granularity motion remains a significant challenge</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12257v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12257v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12257v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12255v1" target="_blank">Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Humans perceive and understand real-world spaces through a stream of visual observations</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span><span class="tag">cs.LG</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12255v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12255v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12255v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12254v1" target="_blank">Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Multi-modal large language models (MLLMs) have advanced general-purpose video understanding but struggle with long, high-resolution videos -- they process every pixel equally in their vision transformers (ViTs) or LLMs despite significant spatiotemporal redundancy</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12254v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12254v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12254v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12252v1" target="_blank">EndoCoT: Scaling Endogenous Chain-of-Thought Reasoning in Diffusion Models</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Recently, Multimodal Large Language Models (MLLMs) have been widely integrated into diffusion frameworks primarily as text encoders to tackle complex tasks such as spatial reasoning</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span><span class="tag">cs.CL</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12252v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12252v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12252v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12250v1" target="_blank">DVD: Deterministic Video Depth Estimation with Generative Priors</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Existing video depth estimation faces a fundamental trade-off: generative models suffer from stochastic geometric hallucinations and scale drift, while discriminative models demand massive labeled datasets to resolve semantic ambiguities</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12250v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12250v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12250v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12249v1" target="_blank">SciMDR: Benchmarking and Advancing Scientific Multimodal Document Reasoning</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Constructing scientific multimodal document reasoning datasets for foundation model training involves an inherent trade-off among scale, faithfulness, and realism</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.CL</span><span class="tag">cs.AI</span><span class="tag">cs.CV</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12249v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12249v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12249v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+<div class="item-card" data-priority="3" data-signal="incremental">
+  <div class="item-header">
+    <div class="item-title-group">
+      <div class="item-title"><a href="https://arxiv.org/abs/2603.12248v1" target="_blank">Matching Features, Not Tokens: Energy-Based Fine-Tuning of Language Models</a></div>
+      <div class="item-meta">
+        <span class="badge badge-source">ArXiv</span>
+        <span class="badge badge-p3">ℹ️ P3 Info</span>
+        <span class="badge badge-p3">🔄 Incremental</span>
+        
+        <span style="color:var(--text-muted);font-size:0.78rem;">2026-03-12</span>
+      </div>
+    </div>
+    <button class="expand-btn">▼</button>
+  </div>
+  <div class="item-body">
+    <div class="exec-summary">Incremental ML update</div>
+    <div class="analysis-grid">
+      <div class="analysis-block">
+  <div class="block-label">⚙️ WHAT</div>
+  <div class="block-content">Cross-entropy (CE) training provides dense and scalable supervision for language models, but it optimizes next-token prediction under teacher forcing rather than sequence-level behavior under model rollouts</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">💡 WHY IT MATTERS</div>
+  <div class="block-content">High automation impact</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🔬 HOW IT WORKS</div>
+  <div class="block-content">Neural scaling</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">🛠️ WHAT YOU CAN DO</div>
+  <div class="block-content">Evaluate for autonomous pipelines</div>
+</div>
+      <div class="analysis-block">
+  <div class="block-label">👥 WHO IS AFFECTED</div>
+  <div class="block-content">Developers</div>
+</div>
+    </div>
+    
+    <div class="tags-list"><span class="tag">cs.LG</span></div>
+    <div class="source-links"><a href="https://arxiv.org/abs/2603.12248v1" class="source-link" target="_blank">🔗 Read Article</a><a href="https://arxiv.org/pdf/2603.12248v1" class="source-link" target="_blank">📄 PDF</a><a href="https://arxiv.org/abs/2603.12248v1" class="source-link" target="_blank">📚 ArXiv</a></div>
+  </div>
+</div>
+  </div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://github.com/OmHandeisCoding/daily-intel">Daily Intel System</a> —
+  For IT Specialists. Data from public sources. Not financial or legal advice.
+</footer>
+
+<script>
+// ─── Expand/Collapse ──────────────────────────────────────────────────────────
+document.querySelectorAll('.item-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const card = header.closest('.item-card');
+    const body = card.querySelector('.item-body');
+    const btn = card.querySelector('.expand-btn');
+    const isOpen = body.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.textContent = isOpen ? '▲' : '▼';
+  });
+});
+
+// ─── Priority Filters ─────────────────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.item-card').forEach(card => {
+      if (filter === 'all') {
+        card.style.display = '';
+      } else if (filter === 'p1') {
+        card.style.display = card.dataset.priority === '1' ? '' : 'none';
+      } else if (filter === 'p2') {
+        card.style.display = card.dataset.priority <= '2' ? '' : 'none';
+      } else if (filter === 'exploited') {
+        card.style.display = card.dataset.exploited === 'true' ? '' : 'none';
+      } else if (filter === 'breakthrough') {
+        card.style.display = card.dataset.signal === 'breakthrough' ? '' : 'none';
+      } else if (filter === 'escalating') {
+        card.style.display = card.dataset.signal === 'escalating' ? '' : 'none';
+      }
+    });
+  });
+});
+
+// ─── Search ───────────────────────────────────────────────────────────────────
+document.getElementById('searchBar').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  document.querySelectorAll('.item-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(q) ? '' : 'none';
+  });
+});
+
+// ─── Charts (pre-loaded via data attributes) ──────────────────────────────────
+const chartConfigs = [{"id": "chart1", "config": {"type": "doughnut", "data": {"labels": ["Incremental"], "datasets": [{"data": [25], "backgroundColor": ["#a29bfe", "#74b9ff", "#ffeaa7", "#ff7675", "#fd79a8"], "borderWidth": 0}]}, "options": {"plugins": {"legend": {"labels": {"color": "#8892b0"}}}}}}, {"id": "chart2", "config": {"type": "bar", "data": {"labels": ["P1 Critical", "P2 High", "P3 Info"], "datasets": [{"data": [6, 0, 19], "backgroundColor": ["#ff4757", "#ffa502", "#4a5568"], "borderRadius": 6}]}, "options": {"plugins": {"legend": {"display": false}}, "scales": {"x": {"ticks": {"color": "#8892b0"}, "grid": {"color": "rgba(255,255,255,0.05)"}}, "y": {"ticks": {"color": "#8892b0"}, "grid": {"color": "rgba(255,255,255,0.05)"}}}}}}];
+chartConfigs.forEach(cfg => {
+  const canvas = document.getElementById(cfg.id);
+  if (!canvas) return;
+  new Chart(canvas, cfg.config);
+});
+
+// ─── Animate stat numbers ─────────────────────────────────────────────────────
+document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+  const target = parseFloat(el.dataset.target);
+  const isFloat = el.dataset.float === 'true';
+  let start = 0;
+  const step = target / 40;
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = isFloat ? start.toFixed(1) : Math.round(start);
+    if (start >= target) clearInterval(timer);
+  }, 30);
+});
+</script>
+</body>
+</html>
